@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:minierp/app/pages/login/stores/login_page_store.dart';
 import 'package:minierp/rotas.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => LoginPageStore())],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
